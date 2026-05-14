@@ -1,0 +1,81 @@
+rules:
+  - id: "avoid-mutable-default-args-python"
+    name: "Avoid mutable default arguments in Python functions"
+    type: llm
+    severity: warning
+    category: "patterns"
+    message: "Do not use mutable objects like [] or {} as default parameter values; use None and initialize inside the function to prevent shared-state mutation bugs."
+    llm:
+      prompt: "Do not use mutable objects like [] or {} as default parameter values; use None and initialize inside the function to prevent shared-state mutation bugs."
+  - id: "use-no-args-super-python"
+    name: "Use no-argument super() in Python classes"
+    type: llm
+    severity: warning
+    category: "style"
+    message: "When calling parent class methods in Python, use modern no-args super() instead of naming the base class explicitly."
+    llm:
+      prompt: "When calling parent class methods in Python, use modern no-args super() instead of naming the base class explicitly."
+  - id: "preserve-existing-comments-when-moving-code"
+    name: "Preserve comments when refactoring or moving code"
+    type: llm
+    severity: warning
+    category: "patterns"
+    message: "If logic is moved to a new location, carry over the existing explanatory comments with that code unless they are intentionally rewritten."
+    llm:
+      prompt: "If logic is moved to a new location, carry over the existing explanatory comments with that code unless they are intentionally rewritten."
+  - id: "avoid-stray-formatting-only-diff-noise"
+    name: "Avoid stray whitespace and unrelated formatting changes"
+    type: llm
+    severity: warning
+    category: "style"
+    message: "Keep diffs focused by reverting incidental whitespace/blank-line-only edits and unrelated style churn when not required for the fix."
+    llm:
+      prompt: "Keep diffs focused by reverting incidental whitespace/blank-line-only edits and unrelated style churn when not required for the fix."
+  - id: "add-regression-tests-for-behavioral-fixes"
+    name: "Add targeted regression tests for behavior changes"
+    type: llm
+    severity: warning
+    category: "patterns"
+    message: "When fixing or refactoring behavior, include a minimal test that would fail without the change (including assertions on emitted output when relevant)."
+    llm:
+      prompt: "When fixing or refactoring behavior, include a minimal test that would fail without the change (including assertions on emitted output when relevant)."
+  - id: "use-precise-permission-codename-matching"
+    name: "Use exact permission codename matching"
+    type: llm
+    severity: warning
+    category: "security"
+    message: "When renaming or querying permissions, avoid substring-based matching (e.g., contains/endswith) that can conflate unrelated codenames; use exact expected codenames."
+    llm:
+      prompt: "When renaming or querying permissions, avoid substring-based matching (e.g., contains/endswith) that can conflate unrelated codenames; use exact expected codenames."
+  - id: "derive-default-permissions-from-renamed-model"
+    name: "Derive default permissions from the target model"
+    type: llm
+    severity: warning
+    category: "security"
+    message: "In model-rename permission handling, compute default permissions from the model being renamed rather than from the generic Permission model."
+    llm:
+      prompt: "In model-rename permission handling, compute default permissions from the model being renamed rather than from the generic Permission model."
+  - id: "avoid-global-svg-transform-side-effects"
+    name: "Avoid global SVG edits for context-specific alignment fixes"
+    type: llm
+    severity: warning
+    category: "style"
+    message: "Do not hardcode visual transforms in shared SVG assets for a local UI alignment issue; apply page- or selector-scoped CSS so other screens are unaffected."
+    llm:
+      prompt: "Do not hardcode visual transforms in shared SVG assets for a local UI alignment issue; apply page- or selector-scoped CSS so other screens are unaffected."
+  - id: "prefer-e2e-tests-for-dom-selector-contracts"
+    name: "Use end-to-end tests for DOM-to-JS integration contracts"
+    type: llm
+    severity: warning
+    category: "patterns"
+    message: "When validating that template markup aligns with JavaScript selectors, prefer Selenium/e2e coverage over tightly coupled JS unit tests."
+    llm:
+      prompt: "When validating that template markup aligns with JavaScript selectors, prefer Selenium/e2e coverage over tightly coupled JS unit tests."
+  - id: "avoid-shadowing-loop-variables-in-conversion-logic"
+    name: "Do not shadow loop variables in parsing/conversion loops"
+    type: llm
+    severity: warning
+    category: "patterns"
+    message: "Avoid reusing outer loop variable names in inner loops when converting values, as leaked converted values can corrupt later iterations; add tests for multi-field cases."
+    llm:
+      prompt: "Avoid reusing outer loop variable names in inner loops when converting values, as leaked converted values can corrupt later iterations; add tests for multi-field cases."
